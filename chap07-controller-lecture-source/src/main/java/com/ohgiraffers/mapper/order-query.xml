@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment/>
+    <entry key="selectAllCategory">
+        SELECT  A.CATEGORY_CODE,
+              A.CATEGORY_NAME
+        FROM  TBL_CATEGORY A
+    </entry>
+
+    <entry key="selectMenuByCategory">
+        SELECT  A.MENU_CODE
+        , A.MENU_NAME
+        , A.MENU_PRICE
+        , A.CATEGORY_CODE
+        , A.ORDERABLE_STATUS
+        FROM  TBL_MENU A
+        WHERE  A.ORDERABLE_STATUS = 'Y'
+        AND  A.CATEGORY_CODE = ?
+    </entry>
+
+    <entry key="insertOrder">
+        INSERT INTO TBL_ORDER   (
+        ORDER_DATE
+        , ORDER_TIME
+        , TOTAL_ORDER_PRICE
+        )
+        VALUES  (
+        ?
+        , ?
+        , ?
+        )
+    </entry>
+
+    <entry key="selectLastOrderCode">
+        SELECT  (AUTO_INCREMENT - 1) AS CURRVAL
+        FROM  INFORMATION_SCHEMA.TABLES
+        WHERE  TABLE_SCHEMA = 'menu'
+        AND  TABLE_NAME = 'tbl_order'
+    </entry>
+
+    <entry key="insertOrderMenu">
+        INSERT INTO TBL_ORDER_MENU  (
+        ORDER_CODE
+        , MENU_CODE
+        , ORDER_AMOUNT
+        )
+        VALUES  (
+        ?
+        , ?
+        , ?
+        )
+    </entry>
+</properties>

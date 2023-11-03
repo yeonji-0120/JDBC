@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<!-- 위에 내용 다시 보고 적어두기-->
+<properties>
+
+    <comment/>
+    <!-- 주석 넣기 -->
+    <!-- 성으로 직원 조회용 쿼리 -->
+    <entry key="selectEmpBYFamilyName">
+        SELECT E.*
+        FROM EMPLOYEE E
+        WHERE E.EMP_NAME LIKE CONCAT(? '%')
+        <!--쿼리문을 작성할 때 주의할 사항으로 쿼리의 맨 마지막에 ';'을 붙이지 않는다-->
+
+    </entry><!-- 하나의 쿼리는 entry로 구분-->
+
+</properties>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+
+    <comment/>
+
+    <entry key="selectLastMenuCode">
+        SELECT MAX(A.MENU_CODE)
+        FROM tbl_menu A
+    </entry>
+
+    <entry key="selectAllCategoryList">
+        SELECT A.category_code,
+                A.category_name
+        FROM tbl_category A
+    </entry>
+
+    <entry key="insertMenu">
+        INSERT
+            INTO tbl_menu(
+                            menu_code,
+                            menu_name,
+                            menu_price,
+                            category_code,
+                            orderable_status)
+        VALUES(?, ?, ?, ?, ?)
+    </entry>
+</properties>
